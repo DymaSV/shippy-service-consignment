@@ -29,18 +29,28 @@ func (repo *Repository) Create(conseignment *pb.Consignment) (*pb.Consignment, e
 	return conseignment, nil
 }
 
+// Create a new consignment
+func (repo *Repository) Get() ([]*pb.Consignment, error) {
+	return repo.conseignment, nil
+}
+
 type service struct {
 	repo *Repository
 }
 
 // Create methode for our service
-func (s *service) CreateConsignment(ctx context.Context, req *pb.Consignment) (*pb.Response, error) {
+func (s *service) CreateConsignment(ctx context.Context, req *pb.Consignment) (*pb.CreateResponse, error) {
 	consignment, err := s.repo.Create(req)
 	if err != nil {
 		fmt.Errorf("Cannot add consignment: %v", err)
 		return nil, err
 	}
 	return &pb.CreateResponse{Success: true, Consignment: consignment}, nil
+}
+
+func (s *service) GetConsignment(ctx context.Context, req *pb.GetRequest) (*pb.GetResponse, error) {
+	consignments, _ := s.repo.Get()
+	return &pb.GetResponse{Success: true, Consignments: consignments}, nil
 }
 
 func main() {
