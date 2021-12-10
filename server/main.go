@@ -40,7 +40,7 @@ func (s *service) CreateConsignment(ctx context.Context, req *pb.Consignment) (*
 		fmt.Errorf("Cannot add consignment: %v", err)
 		return nil, err
 	}
-	return &pb.Response{Created: true, Consignment: consignment}, nil
+	return &pb.CreateResponse{Success: true, Consignment: consignment}, nil
 }
 
 func main() {
