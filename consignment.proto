@@ -6,7 +6,8 @@ package consignment;
 option go_package = "./proto/consignment";
 
 service ShippingService {
-  rpc CreateConsignment(Consignment) returns (Response) {}
+  rpc CreateConsignment(Consignment) returns (CreateResponse) {}
+  rpc GetConsignment(GetRequest) returns (GetResponse) {}
 }
 
 message Consignment {
@@ -24,7 +25,14 @@ message Container {
   string user_id = 4;
 }
 
-message Response {
-  bool created = 1;
+message GetRequest {}
+
+message CreateResponse {
+  bool success = 1;
   Consignment consignment = 2;
+}
+
+message GetResponse {
+  bool success = 1;
+  repeated Consignment consignments = 2;
 }
