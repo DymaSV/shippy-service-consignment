@@ -7,7 +7,7 @@ import (
 	"net"
 	"sync"
 
-	pb "github.com/DymaSV/shippy-service-consignment/proto/consignment"
+	pb "github.com/DymaSV/shippy-service-consignment/server/proto/consignment"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 )

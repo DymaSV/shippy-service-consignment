@@ -8,7 +8,7 @@ import (
 	"log"
 	"os"
 
-	pb "github.com/DymaSV/shippy-service-consignment/proto/consignment"
+	pb "github.com/DymaSV/shippy-service-consignment/server/proto/consignment"
 	"google.golang.org/grpc"
 )
 
