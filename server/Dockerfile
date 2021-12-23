@@ -1,3 +1,4 @@
+# syntax=docker/dockerfile:1
 FROM golang:alpine as builder
 
 RUN apk update && apk upgrade && \
